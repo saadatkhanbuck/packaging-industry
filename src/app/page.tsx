@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Hero from "./hero/page";
 
 export default function Home() {
   return (
-    <div className="bg-amber-200 text-black">
-      Saadat Khan
+    <div>
+     <Hero/>
     </div>
   );
 }
