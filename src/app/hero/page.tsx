@@ -4,6 +4,7 @@ import { ArrowRight, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import ServicesPage from "../components/ourservice";
 
+
 export default function Hero() {
   return (
     <>

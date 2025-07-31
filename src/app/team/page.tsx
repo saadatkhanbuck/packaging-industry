@@ -1,8 +1,12 @@
 import React from 'react'
+import Team from './team'
 
 function OurTeam() {
   return (
-    <div className='text-black mt-20'>OurTeam</div>
+    <div> 
+      <Team/>
+    </div>
+    
   )
 }
 
