@@ -130,7 +130,7 @@ const ServicesPage: React.FC = () => {
 
                 {isMiddleCard ? (
                   <motion.div
-                    whileTap={{ x: 5 }}
+                    whileTap={{ x: 10 }}
                     transition={{ type: 'tween', duration: 0.3 }}
                     className="inline-flex items-center gap-2"
                   >
