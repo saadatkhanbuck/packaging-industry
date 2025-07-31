@@ -1,35 +1,77 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState("");
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
 
   const navItems = [
-    { name: "Home" },
-    { name: "About Us" },
-    { name: "Services" },
-    { name: "Projects", dropdown: ["Projects", "Project details"] },
-    { name: "Pages", dropdown: ["Pricing", "Our Team", "FAQ"] },
-    { name: "Blog", dropdown: ["Blog", "Single Blog"] },
-    { name: "Contact" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    {
+      name: "Projects",
+      dropdown: [
+        { name: "Projects", href: "/projects" },
+        { name: "Project Details", href: "/projects/details" },
+      ],
+    },
+    {
+      name: "Pages",
+      dropdown: [
+        { name: "Pricing", href: "/pricing" },
+        { name: "Our Team", href: "/team" },
+        { name: "FAQ", href: "/faq" },
+      ],
+    },
+    {
+      name: "Blog",
+      dropdown: [
+        { name: "Blog", href: "/blog" },
+        { name: "Single Blog", href: "/blog/single" },
+      ],
+    },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const activeItem = "Home";
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="bg-transparent shadow-non w-full z-50 fixed top-0 left-0">
-
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Left: Logo */}
+    <header
+      className={`w-full z-50 fixed top-0 left-0 transition-transform duration-500 ${
+        showNavbar ? "translate-y-0 bg-white shadow" : "-translate-y-full"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Logo */}
         <div className="flex-shrink-0">
           <img src="/img/logo2.png" alt="Logo" className="h-10 w-auto" />
         </div>
 
-        {/* Center: Nav */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex flex-1 justify-center space-x-2 text-sm font-medium text-gray-900">
           {navItems.map((item, idx) => (
             <div
@@ -38,19 +80,18 @@ export default function Navbar() {
               onMouseEnter={() => setOpenDropdown(item.dropdown ? item.name : "")}
               onMouseLeave={() => setOpenDropdown("")}
             >
-              <a
-                href="#"
+              <Link
+                href={item.href || "#"}
                 className={`font-semibold group/navitem relative px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-1
-                  ${
-                    item.name === activeItem
-                      ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
-                      : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
+                  ${item.href === pathname
+                    ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
+                    : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
                   }`}
               >
                 <span className="relative flex flex-col items-center justify-center h-full">
                   <span
                     className={`transition-all duration-200 ${
-                      item.name === activeItem
+                      item.href === pathname
                         ? "opacity-0 -translate-y-full"
                         : "group-hover/navitem:-translate-y-full group-hover/navitem:opacity-0"
                     }`}
@@ -59,7 +100,7 @@ export default function Navbar() {
                   </span>
                   <span
                     className={`absolute transition-all duration-300 ${
-                      item.name === activeItem
+                      item.href === pathname
                         ? "translate-y-0 opacity-100"
                         : "translate-y-full opacity-0 group-hover/navitem:translate-y-0 group-hover/navitem:opacity-100"
                     }`}
@@ -67,18 +108,20 @@ export default function Navbar() {
                     {item.name} {item.dropdown && <span className="text-[10px]">▾</span>}
                   </span>
                 </span>
-              </a>
+              </Link>
 
               {item.dropdown && openDropdown === item.name && (
                 <div className="absolute left-0 mt-0 w-40 bg-white shadow-lg rounded-md py-2 z-50">
                   {item.dropdown.map((subItem, subIdx) => (
-                    <a
+                    <Link
                       key={subIdx}
-                      href="#"
-                      className="block px-4 py-2 font-semibold text-sm text-[#2E8AE0] hover:bg-gray-100"
+                      href={subItem.href}
+                      className={`block px-4 py-2 font-semibold text-sm ${
+                        subItem.href === pathname ? "text-white bg-[#2E8AE0]" : "text-[#2E8AE0] hover:bg-gray-100"
+                      }`}
                     >
-                      {subItem}
-                    </a>
+                      {subItem.name}
+                    </Link>
                   ))}
                 </div>
               )}
@@ -86,7 +129,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right: Contact + Button */}
+        {/* Desktop Contact + Button */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center space-x-2 text-sm">
             <svg className="w-10 h-10 text-[#2E8AE0]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -110,19 +153,15 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Toggle + Contact stacked */}
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-3">
-          {/* <div className="flex flex-col text-right leading-tight">
-            <p className="text-xs text-gray-500">Free Consultation</p>
-            <p className="text-sm font-semibold text-gray-900">(+92) 3201757153</p>
-          </div> */}
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="w-6 h-6 text-[#124576]" /> : <Menu className="w-6 h-6 text-[#124576]" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#f8f6f3] text-[#2E8AE0] font-semibold px-4 pb-4 space-y-2">
           {navItems.map((item, idx) => (
@@ -134,10 +173,9 @@ export default function Navbar() {
                   )
                 }
                 className={`w-full text-left rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 flex justify-between items-center
-                  ${
-                    item.name === activeItem
-                      ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
-                      : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
+                  ${item.href === pathname
+                    ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
+                    : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
                   }`}
               >
                 {item.name} {item.dropdown && <span className="text-xs">▾</span>}
@@ -146,20 +184,22 @@ export default function Navbar() {
               {item.dropdown && mobileDropdownOpen === item.name && (
                 <div className="ml-4 mt-1 space-y-1">
                   {item.dropdown.map((subItem, subIdx) => (
-                    <a
+                    <Link
                       key={subIdx}
-                      href="#"
-                      className="block text-sm px-4 py-1 rounded hover:bg-gray-100"
+                      href={subItem.href}
+                      className={`block text-sm px-4 py-1 rounded ${
+                        subItem.href === pathname ? "bg-[#2E8AE0] text-white" : "hover:bg-gray-100"
+                      }`}
                     >
-                      {subItem}
-                    </a>
+                      {subItem.name}
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
 
-          {/* Mobile Contact and CTA */}
+          {/* Mobile Contact + CTA */}
           <div className="mt-4 border-t pt-4 space-y-1">
             <div className="text-sm text-gray-700">
               <p className="text-xs text-gray-600">Free Consultation</p>
