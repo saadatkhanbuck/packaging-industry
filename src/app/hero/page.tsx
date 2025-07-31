@@ -29,10 +29,12 @@ export default function Hero() {
           {/* Right Side Content */}
           <div className="w-full lg:w-1/2 text-black text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-              Experience the Future of <span className="text-[#2E8AE0]">Design</span>
+              Quality <span className="text-[#2E8AE0]"> Content</span> For Your
+              Business In A Few <span className="text-[#2E8AE0]">Clicks</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-xl">
-              Elevate your digital presence with sleek interfaces and seamless user experience powered by our latest innovations.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
 
             {/* Buttons */}

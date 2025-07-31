@@ -21,7 +21,8 @@ export default function Navbar() {
   const activeItem = "Home";
 
   return (
-    <header className="bg-[#f8f6f3] shadow-sm w-full z-50 relative">
+    <header className="bg-transparent shadow-non w-full z-50 fixed top-0 left-0">
+
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
@@ -92,7 +93,7 @@ export default function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6" />
             </svg>
             <div>
-              <p className="text-xs text-gray-600">Free Consultation</p>
+              <p className="text-xs text-zinc-700">Free Consultation</p>
               <p className="text-md font-semibold text-gray-900">(+92) 3201757153</p>
             </div>
           </div>

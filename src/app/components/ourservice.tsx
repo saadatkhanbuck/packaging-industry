@@ -9,6 +9,8 @@ import {
   FaTags,
   FaClipboardList,
 } from 'react-icons/fa';
+import { LayoutGrid } from "lucide-react";
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -58,18 +60,20 @@ const ServicesPage: React.FC = () => {
     <div className="py-14 px-4 md:px-20 bg-white overflow-x-hidden">
       {/* Top Section Heading */}
       <div className="mb-8">
-        <p className="text-blue-500 font-semibold text-xs mb-1">Our Services</p>
+        <p className="text-[#2E8AE0] font-semibold text-xs mb-1">Our Services</p>
         <h2 className="text-zinc-700 text-lg font-bold mb-2">What Service We Offer</h2>
         <p className="text-zinc-700 text-xs max-w-2xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua
         </p>
-        <Link
-          href="#"
-          className="inline-block mt-3 bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white hover:bg-blue-800 px-4 py-2 text-xs font-medium transition-colors duration-300"
-        >
-          All Services
-        </Link>
+       <Link
+  href="#"
+  className="inline-flex items-center gap-2 mt-3 bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white hover:bg-blue-800 px-6 py-3 text-xs font-medium rounded-md transition-colors duration-300"
+>
+  <LayoutGrid className="w-4 h-4" />
+  All Services
+</Link>
+
       </div>
 
       {/* Services Grid */}
