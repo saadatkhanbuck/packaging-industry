@@ -3,6 +3,8 @@
 import { ArrowRight, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import ServicesPage from "../components/ourservice";
+import { MarqueeDemo } from "../components/marqueedemo";
+import OurProjects from "../components/ourprojects";
 
 
 export default function Hero() {
@@ -33,6 +35,7 @@ export default function Hero() {
               Quality <span className="text-[#2E8AE0]"> Content</span> For Your
               Business In A Few <span className="text-[#2E8AE0]">Clicks</span>
             </h1>
+
             <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
@@ -52,9 +55,12 @@ export default function Hero() {
           </div>
         </div>
       </section>
+ 
 
       {/* Services Section Below */}
       <ServicesPage />
+      <MarqueeDemo/>
+      <OurProjects/>
     </>
   );
 }

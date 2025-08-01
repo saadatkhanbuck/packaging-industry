@@ -85,7 +85,7 @@ export default function Navbar() {
                 className={`font-semibold group/navitem relative px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-1
                   ${item.href === pathname
                     ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
-                    : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
+                    : "bg-transparent text-black hover:bg-[#000000] hover:text-white"
                   }`}
               >
                 <span className="relative flex flex-col items-center justify-center h-full">
@@ -175,7 +175,7 @@ export default function Navbar() {
                 className={`w-full text-left rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 flex justify-between items-center
                   ${item.href === pathname
                     ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
-                    : "bg-transparent text-black hover:bg-[#545454] hover:text-white"
+                    : "bg-transparent text-black hover:bg-[#000000] hover:text-white"
                   }`}
               >
                 {item.name} {item.dropdown && <span className="text-xs">▾</span>}
