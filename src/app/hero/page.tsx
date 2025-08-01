@@ -5,6 +5,8 @@ import Image from "next/image";
 import ServicesPage from "../components/ourservice";
 import { MarqueeDemo } from "../components/marqueedemo";
 import OurProjects from "../components/ourprojects";
+import ContentCreation from "../components/contentcreation";
+import BlogSection from "../components/blogsection";
 
 
 export default function Hero() {
@@ -24,7 +26,7 @@ export default function Hero() {
               alt="Product Mockup"
               width={640} // increased from 500
               height={640}
-              className="rounded-3xl shadow-xl mx-auto lg:max-w-md xl:max-w-lg"
+              className="rounded-3xl shadow-xl mt-10 mx-auto lg:max-w-md xl:max-w-lg"
               priority
             />
           </div>
@@ -61,6 +63,8 @@ export default function Hero() {
       <ServicesPage />
       <MarqueeDemo/>
       <OurProjects/>
+      <ContentCreation/>
+      <BlogSection/>
     </>
   );
 }
