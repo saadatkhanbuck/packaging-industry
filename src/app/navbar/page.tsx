@@ -62,7 +62,7 @@ export default function Navbar() {
   return (
     <header
       className={`w-full z-50 fixed top-0 left-0 transition-transform duration-500 ${
-        showNavbar ? "translate-y-0 bg-white shadow" : "-translate-y-full"
+        showNavbar ? "translate-y-0 bg-transparent shadow" : "-translate-y-full"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">

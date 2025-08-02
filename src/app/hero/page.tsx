@@ -7,7 +7,8 @@ import { MarqueeDemo } from "../components/marqueedemo";
 import OurProjects from "../components/ourprojects";
 import ContentCreation from "../components/contentcreation";
 import BlogSection from "../components/blogsection";
-
+import WhoWeAreSection from "../components/whoweare";
+import ChooseUs from "../components/chooseus";
 
 export default function Hero() {
   return (
@@ -57,14 +58,16 @@ export default function Hero() {
           </div>
         </div>
       </section>
- 
 
       {/* Services Section Below */}
-      <ServicesPage />
       <MarqueeDemo/>
-      <OurProjects/>
-      <ContentCreation/>
-      <BlogSection/>
+      <WhoWeAreSection />
+      <ServicesPage />
+
+      <OurProjects />
+      <ContentCreation />
+      <BlogSection />
+      <ChooseUs />
     </>
   );
 }
