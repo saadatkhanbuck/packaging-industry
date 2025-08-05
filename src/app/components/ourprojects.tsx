@@ -32,7 +32,7 @@ const projects = [
 
 export default function OurProjects() {
   return (
-    <section className="py-20 bg-[#f9f9f9] px-4">
+    <section className="py-20 bg-white px-4">
       <div className="max-w-6xl mx-auto text-center">
 
         {/* ✅ Section Title: Our Projects */}

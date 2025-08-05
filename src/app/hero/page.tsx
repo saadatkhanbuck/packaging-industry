@@ -58,15 +58,18 @@ export default function Hero() {
           </div>
         </div>
       </section>
- 
 
       {/* Services Section Below */}
       <ServicesPage />
       <MeetingTeam/>
       <MarqueeDemo/>
-      <OurProjects/>
-      <ContentCreation/>
-      <BlogSection/>
+      <WhoWeAreSection />
+      <ServicesPage />
+
+      <OurProjects />
+      <ContentCreation />
+      <BlogSection />
+      <ChooseUs />
     </>
   );
 }

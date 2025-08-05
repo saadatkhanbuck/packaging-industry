@@ -45,13 +45,11 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -62,7 +60,7 @@ export default function Navbar() {
   return (
     <header
       className={`w-full z-50 fixed top-0 left-0 transition-transform duration-500 ${
-        showNavbar ? "translate-y-0 bg-white shadow" : "-translate-y-full"
+        showNavbar ? "translate-y-0 bg-transparent shadow" : "-translate-y-full"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
@@ -166,35 +164,59 @@ export default function Navbar() {
         <div className="md:hidden bg-[#f8f6f3] text-[#2E8AE0] font-semibold px-4 pb-4 space-y-2">
           {navItems.map((item, idx) => (
             <div key={idx}>
-              <button
-                onClick={() =>
-                  setMobileDropdownOpen(
-                    mobileDropdownOpen === item.name ? null : item.name
-                  )
-                }
-                className={`w-full text-left rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 flex justify-between items-center
-                  ${item.href === pathname
-                    ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
-                    : "bg-transparent text-black hover:bg-[#000000] hover:text-white"
-                  }`}
-              >
-                {item.name} {item.dropdown && <span className="text-xs">▾</span>}
-              </button>
-
-              {item.dropdown && mobileDropdownOpen === item.name && (
-                <div className="ml-4 mt-1 space-y-1">
-                  {item.dropdown.map((subItem, subIdx) => (
-                    <Link
-                      key={subIdx}
-                      href={subItem.href}
-                      className={`block text-sm px-4 py-1 rounded ${
-                        subItem.href === pathname ? "bg-[#2E8AE0] text-white" : "hover:bg-gray-100"
+              {item.dropdown ? (
+                <>
+                  <button
+                    onClick={() =>
+                      setMobileDropdownOpen(
+                        mobileDropdownOpen === item.name ? null : item.name
+                      )
+                    }
+                    className={`w-full text-left rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 flex justify-between items-center
+                      ${item.href === pathname
+                        ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
+                        : "bg-transparent text-black hover:bg-[#000000] hover:text-white"
                       }`}
-                    >
-                      {subItem.name}
-                    </Link>
-                  ))}
-                </div>
+                  >
+                    {item.name} <span className="text-xs">▾</span>
+                  </button>
+
+                  {mobileDropdownOpen === item.name && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      {item.dropdown.map((subItem, subIdx) => (
+                        <Link
+                          key={subIdx}
+                          href={subItem.href}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileDropdownOpen(null);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className={`block text-sm px-4 py-1 rounded ${
+                            subItem.href === pathname ? "bg-[#2E8AE0] text-white" : "hover:bg-gray-100"
+                          }`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className={`block rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200
+                    ${item.href === pathname
+                      ? "bg-gradient-to-r from-[#124576] to-[#2E8AE0] text-white"
+                      : "bg-transparent text-black hover:bg-[#000000] hover:text-white"
+                    }`}
+                >
+                  {item.name}
+                </Link>
               )}
             </div>
           ))}
