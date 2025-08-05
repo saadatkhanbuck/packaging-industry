@@ -7,6 +7,7 @@ import { MarqueeDemo } from "../components/marqueedemo";
 import OurProjects from "../components/ourprojects";
 import ContentCreation from "../components/contentcreation";
 import BlogSection from "../components/blogsection";
+import MeetingTeam from "../components/meetingTeam";
 
 
 export default function Hero() {
@@ -61,6 +62,7 @@ export default function Hero() {
 
       {/* Services Section Below */}
       <ServicesPage />
+      <MeetingTeam/>
       <MarqueeDemo/>
       <OurProjects/>
       <ContentCreation/>
