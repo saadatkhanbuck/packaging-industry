@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import WorkingProcess from "../components/workingprocess";
+import ChooseUs from "../components/chooseus";
+import OurClientsReview from "../components/ourclients";
 
 export default function About() {
   return (
@@ -49,7 +51,9 @@ export default function About() {
         </div>
       </div>
     </section>
+    <ChooseUs/>
     <WorkingProcess/>
+    <OurClientsReview/>
     </>
   );
 }
