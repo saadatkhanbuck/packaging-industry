@@ -3,27 +3,32 @@ import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 export function OrbitingCirclesDemo() {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-     <OrbitingCircles iconSize={40}>
-  <Icons.twitter />
-  <Icons.linkedin />
-  <Icons.instagram />
-  <Icons.youtube />
-  <Icons.twitter />
-</OrbitingCircles>
-<OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
-  <Icons.twitter />
-  <Icons.linkedin />
-  <Icons.instagram />
-  <Icons.youtube />
-</OrbitingCircles>
-
+      <OrbitingCircles iconSize={40}>
+        <Icons.twitter />
+        <Icons.linkedin />
+        <Icons.instagram />
+        <Icons.youtube />
+        <Icons.twitter />
+      </OrbitingCircles>
+      <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
+        <Icons.twitter />
+        <Icons.linkedin />
+        <Icons.instagram />
+        <Icons.youtube />
+      </OrbitingCircles>
     </div>
   );
 }
 
 const Icons = {
   twitter: () => (
-    <svg viewBox="0 0 24 24" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      width="100"
+      height="100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <defs>
         <linearGradient id="twitter-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#124576" />
@@ -37,9 +42,21 @@ const Icons = {
     </svg>
   ),
   linkedin: () => (
-    <svg viewBox="0 0 24 24" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      width="100"
+      height="100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <defs>
-        <linearGradient id="linkedin-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient
+          id="linkedin-gradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
           <stop offset="0%" stopColor="#124576" />
           <stop offset="100%" stopColor="#2E8AE0" />
         </linearGradient>
@@ -51,9 +68,21 @@ const Icons = {
     </svg>
   ),
   instagram: () => (
-    <svg viewBox="0 0 24 24" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      width="100"
+      height="100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <defs>
-        <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient
+          id="instagram-gradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
           <stop offset="0%" stopColor="#124576" />
           <stop offset="100%" stopColor="#2E8AE0" />
         </linearGradient>
@@ -65,24 +94,27 @@ const Icons = {
     </svg>
   ),
   youtube: () => (
-  <svg viewBox="0 0 24 24" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="youtube-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#124576" />
-        <stop offset="100%" stopColor="#2E8AE0" />
-      </linearGradient>
-    </defs>
-    <path
-      d="M10 15l5.19-3L10 9v6zm12-3c0-2.04-.07-3.73-.21-5.06-.14-1.33-.6-2.4-1.35-3.15a4.61 4.61 0 00-3.14-1.34C15.57 2.3 12 2.3 12 2.3s-3.57 0-5.3.15a4.61 4.61 0 00-3.14 1.34c-.75.75-1.21 1.82-1.35 3.15C2.07 8.27 2 9.96 2 12c0 2.04.07 3.73.21 5.06.14 1.33.6 2.4 1.35 3.15.75.75 1.82 1.21 3.15 1.35 1.33.14 3.02.21 5.06.21s3.73-.07 5.06-.21c1.33-.14 2.4-.6 3.15-1.35.75-.75 1.21-1.82 1.35-3.15.14-1.33.21-3.02.21-5.06z"
+    <svg
+      viewBox="0 0 24 24"
+      width="100"
+      height="100"
       fill="none"
-      stroke="url(#youtube-gradient)"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-),
-
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="youtube-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#124576" />
+          <stop offset="100%" stopColor="#2E8AE0" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M10 15l5.19-3L10 9v6zm12-3c0-2.04-.07-3.73-.21-5.06-.14-1.33-.6-2.4-1.35-3.15a4.61 4.61 0 00-3.14-1.34C15.57 2.3 12 2.3 12 2.3s-3.57 0-5.3.15a4.61 4.61 0 00-3.14 1.34c-.75.75-1.21 1.82-1.35 3.15C2.07 8.27 2 9.96 2 12c0 2.04.07 3.73.21 5.06.14 1.33.6 2.4 1.35 3.15.75.75 1.82 1.21 3.15 1.35 1.33.14 3.02.21 5.06.21s3.73-.07 5.06-.21c1.33-.14 2.4-.6 3.15-1.35.75-.75 1.21-1.82 1.35-3.15.14-1.33.21-3.02.21-5.06z"
+        fill="none"
+        stroke="url(#youtube-gradient)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
 };
-
-
