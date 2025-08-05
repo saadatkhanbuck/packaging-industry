@@ -7,8 +7,8 @@ import { MarqueeDemo } from "../components/marqueedemo";
 import OurProjects from "../components/ourprojects";
 import ContentCreation from "../components/contentcreation";
 import BlogSection from "../components/blogsection";
-import WhoWeAreSection from "../components/whoweare";
-import ChooseUs from "../components/chooseus";
+import MeetingTeam from "../components/meetingTeam";
+
 
 export default function Hero() {
   return (
@@ -60,6 +60,8 @@ export default function Hero() {
       </section>
 
       {/* Services Section Below */}
+      <ServicesPage />
+      <MeetingTeam/>
       <MarqueeDemo/>
       <WhoWeAreSection />
       <ServicesPage />
