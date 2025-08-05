@@ -6,6 +6,7 @@ import Image from "next/image";
 import WorkingProcess from "../components/workingprocess";
 import ChooseUs from "../components/chooseus";
 import OurClientsReview from "../components/ourclients";
+import { OrbitingCirclesDemo } from "../components/orbettingscircle";
 
 export default function About() {
   return (
@@ -51,9 +52,11 @@ export default function About() {
         </div>
       </div>
     </section>
+    <OrbitingCirclesDemo/>
     <ChooseUs/>
     <WorkingProcess/>
     <OurClientsReview/>
+    
     </>
   );
 }
