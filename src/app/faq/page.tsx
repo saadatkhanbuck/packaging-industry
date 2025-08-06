@@ -3,9 +3,12 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import FaqSection from "../components/faqsection";
+import ContactBanner from "../components/contactbanner";
 
 export default function FAQ() {
   return (
+    <>
     <section
       className="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/img/bg.webp')" }}
@@ -47,5 +50,8 @@ export default function FAQ() {
         </div>
       </div>
     </section>
+    <FaqSection/>
+    <ContactBanner/>
+    </>
   );
 }

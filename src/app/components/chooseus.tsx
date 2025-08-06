@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { PhoneCall, Lightbulb, Globe, Gem, LineChart } from 'lucide-react';
-import Image from 'next/image';
+import { PhoneCall, Lightbulb, Globe, Gem, LineChart,Radiation } from "lucide-react";
+import Image from "next/image";
 
 export default function ChooseUs() {
   return (
@@ -9,14 +9,25 @@ export default function ChooseUs() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Text Content */}
         <div>
-          <h2 className="text-4xl font-semibold text-[#2E8AE0] mb-2">Why choose us</h2>
+          <div className="flex items-center space-x-3 mb-2">
+            {/* Left icon */}
+            <Radiation className="w-6 h-6 text-[#2E8AE0]" />
+            {/* Title */}
+            <h2 className="text-xl md:text-xl font-semibold text-[#2E8AE0] whitespace-nowrap">
+              Why choose us
+            </h2>
+            {/* Right line */}
+            <div className="w-30 h-px bg-gradient-to-r from-blue-400 to-blue-600" />
+          </div>
+
           <h3 className="text-3xl md:text-4xl font-bold text-black leading-snug mb-4">
             Helping businesses succeed is what we do.
           </h3>
           <p className="text-gray-500 text-md leading-relaxed mb-6">
-            Praesent lacinia penatibus ac vitae parturient consectetur maecenas natoque torquent. Aptent pretium
-            sollicitudin mus mollis risus integer magna pulvinar. Egestas malesuada platea mus aenean morbi tristique
-            sit auctor pulvinar.
+            Praesent lacinia penatibus ac vitae parturient consectetur maecenas
+            natoque torquent. Aptent pretium sollicitudin mus mollis risus
+            integer magna pulvinar. Egestas malesuada platea mus aenean morbi
+            tristique sit auctor pulvinar.
           </p>
           <hr className="border-gray-300 mb-6" />
 
@@ -70,7 +81,15 @@ export default function ChooseUs() {
 }
 
 // Reusable Feature Component
-function Feature({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function Feature({
+  icon,
+  title,
+  description
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
   return (
     <div className="flex items-start gap-4">
       <div className="w-20 h-10 rounded-full bg-[#2E8AE0] flex items-center justify-center">

@@ -3,9 +3,14 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ServicesPage from "../components/ourservice";
+import WorkingProcess from "../components/workingprocess";
+import ContactBanner from "../components/contactbanner";
+import FaqSection from "../components/faqsection";
 
 export default function ServicesHeader() {
   return (
+    <>
     <section
       className="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/img/bg.webp')" }}
@@ -47,5 +52,10 @@ export default function ServicesHeader() {
         </div>
       </div>
     </section>
+    <ServicesPage/>
+    <WorkingProcess/>
+    <ContactBanner/>
+    <FaqSection/>
+    </>
   );
 }

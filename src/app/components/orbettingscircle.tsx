@@ -1,22 +1,60 @@
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
+import { Sparkles, CheckCircle } from "lucide-react";
 
 export function OrbitingCirclesDemo() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-      <OrbitingCircles iconSize={40}>
-        <Icons.twitter />
-        <Icons.linkedin />
-        <Icons.instagram />
-        <Icons.youtube />
-        <Icons.twitter />
-      </OrbitingCircles>
-      <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
-        <Icons.twitter />
-        <Icons.linkedin />
-        <Icons.instagram />
-        <Icons.youtube />
-      </OrbitingCircles>
+    <div className="relative flex flex-col md:flex-row items-center justify-between w-full min-h-[500px] p-6 gap-4 overflow-hidden">
+  {/* 🧾 Left Side - Intro */}
+  <div className="flex-1 max-w-xl space-y-4 md:pl-20"> {/* increased from pl-10 to pl-20 */}
+    {/* Title Row */}
+    <div className="flex items-center space-x-3">
+      <Sparkles className="w-6 h-6 text-[#2E8AE0]" />
+      <h2 className="text-xl font-semibold text-[#2E8AE0] dark:text-white">
+        Welcome to Writica
+      </h2>
+      <div className="h-px w-34 bg-[#2E8AE0]" />
     </div>
+
+    {/* Tagline */}
+    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+      Content creation meets creativity
+    </h1>
+
+    {/* Paragraph with check icons */}
+    <div className="space-y-3 text-gray-700 dark:text-gray-300">
+      <p className="flex items-start gap-2">
+        <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+        AI-powered writing tools designed to inspire and assist.
+      </p>
+      <p className="flex items-start gap-2">
+        <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+        Perfect for marketers, bloggers, and storytellers alike.
+      </p>
+      <p className="flex items-start gap-2">
+        <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+        Seamless social integration with orbiting icon animations.
+      </p>
+    </div>
+  </div>
+
+  {/* 🪐 Right Side - Orbiting Circles */}
+  <div className="flex-1 relative h-[500px] flex items-center justify-center">
+    <OrbitingCircles iconSize={40}>
+      <Icons.twitter />
+      <Icons.linkedin />
+      <Icons.instagram />
+      <Icons.youtube />
+      <Icons.twitter />
+    </OrbitingCircles>
+    <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
+      <Icons.twitter />
+      <Icons.linkedin />
+      <Icons.instagram />
+      <Icons.youtube />
+    </OrbitingCircles>
+  </div>
+</div>
+
   );
 }
 

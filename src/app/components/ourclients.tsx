@@ -79,7 +79,7 @@ export default function OurClientsReview() {
                 <h3 className="font-semibold text-lg text-gray-800">
                   {client.name}
                 </h3>
-                <p className="text-sm text-gray-500">{client.role}</p>
+                <p className="text-sm text-[#2E8AE0]">{client.role}</p>
               </div>
             </div>
           ))}

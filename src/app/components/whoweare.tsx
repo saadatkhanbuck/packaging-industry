@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
+import {Group} from "lucide-react";
 
 const features = [
   {
@@ -47,7 +48,16 @@ export default function WhoWeAreSection() {
 
         {/* Right - Text */}
         <div>
-          <h3 className="text-[#2E8AE0] text-xl font-bold mb-2">Who we are</h3>
+         <div className="flex items-center space-x-3 mb-2">
+            {/* Left icon */}
+            <Group className="w-6 h-6 text-[#2E8AE0]" />
+            {/* Title */}
+            <h2 className="text-xl md:text-xl font-semibold text-[#2E8AE0] whitespace-nowrap">
+             Who We Are
+            </h2>
+            {/* Right line */}
+            <div className="w-50 h-px bg-gradient-to-r from-blue-400 to-blue-600" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-semibold leading-snug mb-4 text-gray-900">
             Elevate your business with <br />
             effective copy that engages.
