@@ -3,9 +3,11 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import BlogPost from "../components/blogpost";
 
 export default function Blog() {
   return (
+    <>
     <section
       className="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/img/bg.webp')" }}
@@ -47,5 +49,7 @@ export default function Blog() {
         </div>
       </div>
     </section>
+    <BlogPost/>
+    </>
   );
 }

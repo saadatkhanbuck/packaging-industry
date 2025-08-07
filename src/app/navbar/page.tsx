@@ -11,6 +11,7 @@ export default function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [atTop, setAtTop] = useState(true);
   const pathname = usePathname();
 
   const navItems = [
@@ -45,11 +46,15 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      setAtTop(currentScrollY === 0);
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
+
       setLastScrollY(currentScrollY);
     };
 
@@ -59,8 +64,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`w-full z-50 fixed top-0 left-0 transition-transform duration-500 ${
-        showNavbar ? "translate-y-0 bg-transparent shadow" : "-translate-y-full"
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${
+        showNavbar
+          ? `translate-y-0 ${atTop ? "bg-transparent" : "bg-white shadow-md"}`
+          : "-translate-y-full bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
@@ -115,7 +122,9 @@ export default function Navbar() {
                       key={subIdx}
                       href={subItem.href}
                       className={`block px-4 py-2 font-semibold text-sm ${
-                        subItem.href === pathname ? "text-white bg-[#2E8AE0]" : "text-[#2E8AE0] hover:bg-gray-100"
+                        subItem.href === pathname
+                          ? "text-white bg-[#2E8AE0]"
+                          : "text-[#2E8AE0] hover:bg-gray-100"
                       }`}
                     >
                       {subItem.name}
@@ -127,7 +136,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Contact + Button */}
+        {/* Desktop Contact & CTA */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center space-x-2 text-sm">
             <svg className="w-10 h-10 text-[#2E8AE0]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -168,9 +177,7 @@ export default function Navbar() {
                 <>
                   <button
                     onClick={() =>
-                      setMobileDropdownOpen(
-                        mobileDropdownOpen === item.name ? null : item.name
-                      )
+                      setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)
                     }
                     className={`w-full text-left rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 flex justify-between items-center
                       ${item.href === pathname
@@ -221,7 +228,7 @@ export default function Navbar() {
             </div>
           ))}
 
-          {/* Mobile Contact + CTA */}
+          {/* Mobile Contact & CTA */}
           <div className="mt-4 border-t pt-4 space-y-1">
             <div className="text-sm text-gray-700">
               <p className="text-xs text-gray-600">Free Consultation</p>

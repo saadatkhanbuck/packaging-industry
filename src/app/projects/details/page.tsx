@@ -3,9 +3,13 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ProjectDetailsPage from "@/app/components/projectdetailpage";
+import WorkingProcess from "@/app/components/workingprocess";
+import ContactBanner from "@/app/components/contactbanner";
 
 export default function Details() {
   return (
+    <>
     <section
       className="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/img/bg.webp')" }}
@@ -47,5 +51,9 @@ export default function Details() {
         </div>
       </div>
     </section>
+    <ProjectDetailsPage/>
+    <WorkingProcess/>
+    <ContactBanner/>
+    </>
   );
 }

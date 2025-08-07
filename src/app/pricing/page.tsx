@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import OurPricing from "../components/ourpricing";
 import OurClientsReview from "../components/ourclients";
+import BlogSection from "../components/blogsection";
 
 export default function Pricing() {
   return (
@@ -52,6 +53,7 @@ export default function Pricing() {
     </section>
     <OurPricing/>
     <OurClientsReview/>
+    <BlogSection/>
     </>
   );
 }
