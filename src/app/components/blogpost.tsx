@@ -1,9 +1,10 @@
-// app/components/BlogSection.tsx
 "use client";
 
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const blogPosts = [
   {
@@ -48,8 +49,12 @@ const categories = [
 export default function BlogPost() {
   const [visiblePosts, setVisiblePosts] = useState(3);
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: false });
+  }, []);
+
   return (
-    <section className="py-20 px-6 bg-[#f8f9fa] text-gray-800">
+    <section className="py-20 px-6 bg-white text-gray-800">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
         {/* Left Side - Blog Posts */}
         <div className="col-span-2">
@@ -58,6 +63,8 @@ export default function BlogPost() {
               <div
                 key={index}
                 className="bg-white rounded-xl overflow-hidden shadow-md group"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <div
                   className="h-94 bg-cover bg-center"
@@ -88,7 +95,11 @@ export default function BlogPost() {
 
           {/* Load More Button */}
           {visiblePosts < blogPosts.length && (
-            <div className="mt-8 text-center">
+            <div
+              className="mt-8 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
               <button
                 onClick={() => setVisiblePosts(visiblePosts + 1)}
                 className="px-6 py-2 bg-gradient-to-r from-[#124576] to-[#2E8AE0] transition-all duration-300 hover:from-black hover:to-[#2e3033] text-white rounded-full "
@@ -102,7 +113,11 @@ export default function BlogPost() {
         {/* Right Side */}
         <div className="space-y-6">
           {/* Recent Posts */}
-          <div className="bg-white p-6 rounded-xl shadow-md">
+          <div
+            className="bg-white p-6 rounded-xl shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <h3 className="text-lg font-semibold text-[#2E8AE0] mb-4">
               Recent Posts
             </h3>
@@ -125,6 +140,8 @@ export default function BlogPost() {
           <div
             className="relative bg-cover bg-center rounded-xl text-white p-6 h-64 flex flex-col justify-end"
             style={{ backgroundImage: `url('/img/project3.jpg')` }}
+            data-aos="fade-left"
+            data-aos-delay="300"
           >
             <div className="absolute inset-0 bg-black/60 rounded-xl"></div>
             <div className="relative z-10">
@@ -144,7 +161,11 @@ export default function BlogPost() {
           </div>
 
           {/* Categories */}
-          <div className="bg-white p-6 rounded-xl shadow-md">
+          <div
+            className="bg-white p-6 rounded-xl shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
             <h3 className="text-lg font-semibold text-[#2E8AE0] mb-4">
               Categories
             </h3>

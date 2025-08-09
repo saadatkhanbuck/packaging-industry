@@ -53,7 +53,7 @@ export default function FaqSection() {
           <div className="h-px w-20 bg-[#2E8AE0]"></div>
         </div>
 
-        {/* Subheading and paragraph */}
+        {/* Subheading */}
         <h3 className="text-4xl font-semibold text-gray-800 mb-2">
           Popular Question
         </h3>
@@ -63,17 +63,23 @@ export default function FaqSection() {
         </p>
 
         {/* FAQ Grid */}
-        <div className="grid md:grid-cols-2 gap-1 text-left">
+        <div className="grid md:grid-cols-2 gap-4 text-left">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="border border-gray-200 rounded-lg shadow-sm transition-all duration-300"
+              className={`border rounded-lg shadow-sm transition-all duration-300 ${
+                openIndex === i ? "bg-gray-50 " : "bg-white border-gray-200"
+              }`}
             >
               <button
-                className="w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50"
+                className="w-full text-left px-6 py-5 flex items-center justify-between"
                 onClick={() => toggle(i)}
               >
-                <span className="text-lg font-semibold text-gray-800">
+                <span
+                  className={`text-lg font-semibold ${
+                    openIndex === i ? "text-[#2E8AE0]" : "text-gray-800"
+                  }`}
+                >
                   {faq.question}
                 </span>
                 <ChevronDown

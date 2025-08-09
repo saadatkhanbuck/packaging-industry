@@ -1,15 +1,27 @@
 'use client';
 
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Zap } from 'lucide-react'; // Lucide Icon
 
 export default function WorkingProcess() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // animation speed
+      easing: 'ease-out-cubic', // smooth easing
+      once: false, // run only once
+      offset: 100, // start animation a bit before element enters viewport
+    });
+  }, []);
+
   return (
     <section className="py-20 bg-white text-center">
       {/* Top Text */}
-      <div className="max-w-3xl mx-auto mb-16 px-4">
+      <div className="max-w-3xl mx-auto mb-16 px-4" data-aos="fade-up">
         {/* Line + Icon + Text Row */}
         <div className="flex items-center justify-center gap-3 mb-2">
-          <Zap className="text-[#2E8AE0] w-5 h-5" /> {/* Lucide Icon */}
+          <Zap className="text-[#2E8AE0] w-5 h-5" />
           <p className="text-[#2E8AE0] font-medium">How It Works</p>
           <div className="h-[2px] w-16 bg-[#2E8AE0] rounded-full"></div>
         </div>
@@ -21,21 +33,24 @@ export default function WorkingProcess() {
       </div>
 
       {/* Process Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-4 max-w-6xl mx-auto">
         <Step
           number="01"
           title="Submit A Request"
           description="Lorem ipsum dolor sit amet, consecte adipiscing elit, sed eiusmod tempor incididunt labore et dolore magna aliqua minim"
+          aosDelay={0}
         />
         <Step
           number="02"
           title="We Get It Written"
           description="Lorem ipsum dolor sit amet, consecte adipiscing elit, sed eiusmod tempor incididunt labore et dolore magna aliqua minim"
+          aosDelay={100}
         />
         <Step
           number="03"
           title="Receive Content"
           description="Lorem ipsum dolor sit amet, consecte adipiscing elit, sed eiusmod tempor incididunt labore et dolore magna aliqua minim"
+          aosDelay={200}
         />
       </div>
     </section>
@@ -46,14 +61,20 @@ function Step({
   number,
   title,
   description,
+  aosDelay,
 }: {
   number: string;
   title: string;
   description: string;
+  aosDelay?: number;
 }) {
   return (
-    <div className="relative flex flex-col items-center text-center">
-      {/* Number circle with border + shadow */}
+    <div
+      className="relative flex flex-col items-center text-center"
+      data-aos="fade-up"
+      data-aos-delay={aosDelay}
+    >
+      {/* Number circle */}
       <span className="text-lg font-bold text-[#2E8AE0] border border-gray-300 shadow-md w-12 h-12 flex items-center justify-center rounded-full mb-6">
         {number}
       </span>

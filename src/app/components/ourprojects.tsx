@@ -1,7 +1,10 @@
 "use client";
 
-import { Eye, Blocks  } from "lucide-react";
+import { useEffect } from "react";
+import { Eye, Blocks } from "lucide-react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const projects = [
   {
@@ -31,13 +34,25 @@ const projects = [
 ];
 
 export default function OurProjects() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // smooth speed
+      easing: "ease-in-out", // smooth motion
+      once: false, // run once
+      offset: 50, // start a bit before element enters
+    });
+  }, []);
+
   return (
     <section className="py-20 bg-white px-4">
       <div className="max-w-6xl mx-auto text-center">
 
         {/* ✅ Section Title: Our Projects */}
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <Blocks  className="text-[#2E8AE0] w-5 h-5" />
+        <div
+          className="flex items-center justify-center gap-4 mb-4"
+          data-aos="fade-down"
+        >
+          <Blocks className="text-[#2E8AE0] w-5 h-5" />
           <h3 className="text-xl md:text-xl font-semibold text-[#2E8AE0]">
             Our Projects
           </h3>
@@ -45,11 +60,18 @@ export default function OurProjects() {
         </div>
 
         {/* ✅ Sub Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#000000] mb-2">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-[#000000] mb-2"
+          data-aos="fade-up"
+        >
           Content Writing Projects
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        <p
+          className="text-gray-600 max-w-2xl mx-auto mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           Discover how we’ve helped clients create impact through meaningful
           content and creative strategy.
         </p>
@@ -60,6 +82,8 @@ export default function OurProjects() {
             <div
               key={i}
               className="relative group h-72 rounded-xl overflow-hidden shadow-md cursor-pointer bg-white"
+              data-aos="zoom-in"
+              data-aos-delay={i * 100}
             >
               {/* Background Image */}
               <Image

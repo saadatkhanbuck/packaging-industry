@@ -1,63 +1,103 @@
 "use client";
 
-import { PhoneCall, Lightbulb, Globe, Gem, LineChart,Radiation } from "lucide-react";
+import { useEffect } from "react";
+import {
+  PhoneCall,
+  Lightbulb,
+  Globe,
+  Gem,
+  LineChart,
+  Radiation,
+} from "lucide-react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function ChooseUs() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // animation speed
+      easing: "ease-in-out", // smoothness
+      once: false, // animate only once
+      offset: 50, // trigger slightly before entering view
+    });
+  }, []);
+
   return (
     <section className="px-4 py-20 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Text Content */}
-        <div>
-          <div className="flex items-center space-x-3 mb-2">
-            {/* Left icon */}
+        <div data-aos="fade-right">
+          <div
+            className="flex items-center space-x-3 mb-2"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
             <Radiation className="w-6 h-6 text-[#2E8AE0]" />
-            {/* Title */}
             <h2 className="text-xl md:text-xl font-semibold text-[#2E8AE0] whitespace-nowrap">
               Why choose us
             </h2>
-            {/* Right line */}
             <div className="w-30 h-px bg-gradient-to-r from-blue-400 to-blue-600" />
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-bold text-black leading-snug mb-4">
+          <h3
+            className="text-3xl md:text-4xl font-bold text-black leading-snug mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Helping businesses succeed is what we do.
           </h3>
-          <p className="text-gray-500 text-md leading-relaxed mb-6">
+          <p
+            className="text-gray-500 text-md leading-relaxed mb-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Praesent lacinia penatibus ac vitae parturient consectetur maecenas
             natoque torquent. Aptent pretium sollicitudin mus mollis risus
             integer magna pulvinar. Egestas malesuada platea mus aenean morbi
             tristique sit auctor pulvinar.
           </p>
-          <hr className="border-gray-300 mb-6" />
+          <hr
+            className="border-gray-300 mb-6"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          />
 
           {/* Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Feature
-              icon={<Lightbulb className="text-white w-5 h-5" />}
-              title="Smart & Creative Solutions"
-              description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
-            />
-            <Feature
-              icon={<Globe className="text-white w-5 h-5" />}
-              title="SEO Optimized Content"
-              description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
-            />
-            <Feature
-              icon={<Gem className="text-white w-5 h-5" />}
-              title="High-Quality Content"
-              description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
-            />
-            <Feature
-              icon={<LineChart className="text-white w-5 h-5" />}
-              title="Proven Track Record"
-              description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
-            />
+            <div data-aos="fade-up" data-aos-delay="500">
+              <Feature
+                icon={<Lightbulb className="text-white w-5 h-5" />}
+                title="Smart & Creative Solutions"
+                description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
+              />
+            </div>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <Feature
+                icon={<Globe className="text-white w-5 h-5" />}
+                title="SEO Optimized Content"
+                description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
+              />
+            </div>
+            <div data-aos="fade-up" data-aos-delay="700">
+              <Feature
+                icon={<Gem className="text-white w-5 h-5" />}
+                title="High-Quality Content"
+                description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
+              />
+            </div>
+            <div data-aos="fade-up" data-aos-delay="800">
+              <Feature
+                icon={<LineChart className="text-white w-5 h-5" />}
+                title="Proven Track Record"
+                description="Blandit duis sollicitudin lobortis est phasellus tempor consequat taciti facilisis"
+              />
+            </div>
           </div>
         </div>
 
         {/* Right Image & Contact Card */}
-        <div className="relative">
+        <div className="relative" data-aos="fade-left" data-aos-delay="300">
           <Image
             src="/img/who3.jpg"
             alt="Support"
@@ -67,7 +107,11 @@ export default function ChooseUs() {
           />
 
           {/* Floating Contact Card */}
-          <div className="absolute bottom-5 left-5 bg-[#2E8AE0] text-white rounded-lg px-5 py-5 flex items-center gap-3 shadow-lg">
+          <div
+            className="absolute bottom-5 left-5 bg-[#2E8AE0] text-white rounded-lg px-5 py-5 flex items-center gap-3 shadow-lg"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
             <PhoneCall className="w-6 h-6" />
             <div>
               <p className="text-xs opacity-80 font-medium">Sajid More Help</p>
@@ -84,7 +128,7 @@ export default function ChooseUs() {
 function Feature({
   icon,
   title,
-  description
+  description,
 }: {
   icon: React.ReactNode;
   title: string;

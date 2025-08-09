@@ -6,8 +6,15 @@ import Image from "next/image";
 
 import ContactBanner from "../components/contactbanner";
 import TermsConditions from "../components/termsconditions";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Terms() {
+  useEffect(() => {
+    AOS.init({ duration: 900, once: true });
+  }, []);
+
   return (
     <>
       <section
@@ -16,10 +23,13 @@ export default function Terms() {
       >
         {/* Content Wrapper */}
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-4 w-full max-w-6xl">
-          {/* Left Side Image (slightly more left-aligned) */}
-          <div className="w-full md:w-1/2 flex justify-end pr-6">
+          {/* Left Side Image */}
+          <div
+            className="w-full md:w-1/2 flex justify-end pr-6"
+            data-aos="fade-right"
+          >
             <Image
-              src="/img/bg2.webp"
+              src="/img/bg4.jpg"
               alt="Service Icon"
               width={880}
               height={880}
@@ -27,15 +37,23 @@ export default function Terms() {
             />
           </div>
 
-          {/* Right Side Text (shifted left) */}
-          <div className="w-full md:w-1/2 flex flex-col items-start text-left space-y-6 pl-4">
+          {/* Right Side Text */}
+          <div
+            className="w-full md:w-1/2 flex flex-col items-start text-left space-y-6 pl-4"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl font-bold text-black">
               Our Services
             </h1>
 
-            {/* Breadcrumb with rounded background */}
-            <div className="bg-white/80 backdrop-blur-sm px-2 py-2 rounded-full shadow-md flex items-center gap-2">
+            {/* Breadcrumb */}
+            <div
+              className="bg-white/80 backdrop-blur-sm px-2 py-2 rounded-full shadow-md flex items-center gap-2"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
               <Link
                 href="/"
                 className="px-5 py-1 text-sm bg-white text-[#2E8AE0] rounded-full hover:bg-gray-100 transition-all font-medium"
@@ -50,8 +68,16 @@ export default function Terms() {
           </div>
         </div>
       </section>
-     <TermsConditions/>
-      <ContactBanner/>
+
+      {/* Terms Conditions Section */}
+      <div data-aos="fade-up" data-aos-delay="200">
+        <TermsConditions />
+      </div>
+
+      {/* Contact Banner */}
+      <div data-aos="fade-up" data-aos-delay="400">
+        <ContactBanner />
+      </div>
     </>
   );
 }

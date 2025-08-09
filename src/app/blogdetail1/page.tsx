@@ -1,16 +1,27 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const BlogDetail1 = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation speed
+      once: false, // animate only once
+      easing: "ease-in-out", // smooth easing
+    });
+  }, []);
+
   return (
     <div className="container mx-auto mt-20 p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* Left Side - Blog Content */}
       <div className="md:col-span-2 space-y-6">
         {/* Blog Image & Content */}
-        <div>
+        <div data-aos="fade-up">
           <Image
             src="/img/blog1.jpg"
             alt="Blog"
@@ -18,10 +29,10 @@ const BlogDetail1 = () => {
             height={600}
             className="rounded-xl w-full h-auto"
           />
-          <h1 className="text-3xl font-bold mt-4 text-gray-800">
+          <h1 className="text-3xl font-bold mt-4 text-gray-800" data-aos="fade-up" data-aos-delay="200">
             Creating A Successful Blog For Your eCommerce
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600 mt-2" data-aos="fade-up" data-aos-delay="400">
             High-quality content is not just about grammar and structure — it’s
             about strategy, audience understanding, and value. In this article,
             we explore how to write content that truly connects with your target
@@ -31,7 +42,7 @@ const BlogDetail1 = () => {
 
         {/* Inside Post */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-gray-800">
+          <h2 className="text-2xl font-semibold text-gray-800" data-aos="fade-right">
             Why Content Writing Matters
           </h2>
           <Image
@@ -40,25 +51,25 @@ const BlogDetail1 = () => {
             width={1200}
             height={600}
             className="rounded-xl w-full h-auto"
+            data-aos="zoom-in"
           />
-          <h2 className="text-3xl font-bold text-gray-800">
+          <h2 className="text-3xl font-bold text-gray-800" data-aos="fade-left">
             Writing That Converts: Strategies You Can Use Today
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600" data-aos="fade-up">
             Content writing is essential for SEO, brand voice, and trust
             building. Whether you’re writing a blog post, product description,
             or landing page — words matter. Learn how to structure your message
             and create hooks that keep readers scrolling.
           </p>
-          <hr />
+          <hr data-aos="fade-up" />
         </div>
 
         {/* Post Comment Form */}
-        <div className="mt-8 p-6 border rounded-xl">
+        <div className="mt-8 p-6 border rounded-xl" data-aos="fade-up">
           <h2 className="text-2xl font-semibold mb-4">Post a Comment</h2>
           <p className="text-gray-600 mb-4">
-            Your email address will not be published. Required fields are marked
-            *
+            Your email address will not be published. Required fields are marked *
           </p>
           <form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -103,7 +114,7 @@ const BlogDetail1 = () => {
       {/* Right Sidebar */}
       <aside className="space-y-6">
         {/* Search Bar */}
-        <div className="p-3 border rounded-xl">
+        <div className="p-3 border rounded-xl" data-aos="fade-left">
           <h1 className="text-2xl font-bold text-gray-800">
             <span className="text-blue-600 font-bold mr-2">|</span>Search
           </h1>
@@ -118,7 +129,7 @@ const BlogDetail1 = () => {
         </div>
 
         {/* Categories */}
-        <div className="p-4 border rounded-xl">
+        <div className="p-4 border rounded-xl" data-aos="fade-left" data-aos-delay="200">
           <h3 className="text-2xl font-semibold mb-2 text-gray-800">
             <span className="text-blue-600 font-bold mr-2">|</span>Categories
           </h3>
@@ -135,23 +146,23 @@ const BlogDetail1 = () => {
         </div>
 
         {/* Recent Posts */}
-        <div className="p-4 border rounded-xl">
+        <div className="p-4 border rounded-xl" data-aos="fade-left" data-aos-delay="400">
           <h3 className="text-2xl font-semibold mb-2 text-gray-800">
             <span className="text-blue-600 font-bold mr-2">|</span>Recent Posts
           </h3>
           {[
             {
               title: "Creating A Successful Blog For Your eCommerce",
-              date: "Aug 1, 2025"
+              date: "Aug 1, 2025",
             },
             {
               title: "Creating an Effective Social Media Marketing Campaign",
-              date: "Aug 2, 2025"
+              date: "Aug 2, 2025",
             },
             {
               title: "How to Optimize Content for SEO : A Quick Guide",
-              date: "Aug 3, 2025"
-            }
+              date: "Aug 3, 2025",
+            },
           ].map((post, index) => (
             <div key={index} className="mb-2">
               <h4 className="text-lg text-gray-600 hover:text-blue-600 cursor-pointer font-medium">
@@ -162,8 +173,12 @@ const BlogDetail1 = () => {
           ))}
         </div>
 
-        {/* Question Box with Background Image */}
-        <div className="relative rounded-xl overflow-hidden h-60 text-white">
+        {/* Question Box */}
+        <div
+          className="relative rounded-xl overflow-hidden h-60 text-white"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
           <Image
             src="/img/project3.jpg"
             alt="Have Any Question"
@@ -190,8 +205,8 @@ const BlogDetail1 = () => {
           </div>
         </div>
 
-        {/* Load More & Tags Section */}
-        <div className="p-4 border rounded-xl">
+        {/* Tags */}
+        <div className="p-4 border rounded-xl" data-aos="fade-left" data-aos-delay="400">
           <h3 className="text-xl font-semibold mb-2 text-gray-800">
             <span className="text-blue-600 font-bold mr-2">|</span>Tags
           </h3>
@@ -204,7 +219,7 @@ const BlogDetail1 = () => {
               "Tips",
               "Tools",
               "Planning",
-              "Marketing"
+              "Marketing",
             ].map((tag) => (
               <span
                 key={tag}
