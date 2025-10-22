@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
           
           {/* Left Side Image */}
-          <div
+          {/* <div
             className="w-full lg:w-1/2 flex justify-center"
             data-aos="fade-right"
           >
@@ -47,7 +47,7 @@ export default function Hero() {
               className="rounded-3xl shadow-xl mt-6 sm:mt-10 mx-auto max-w-full sm:max-w-md lg:max-w-lg"
               priority
             />
-          </div>
+          </div> */}
 
           {/* Right Side Content */}
           <div
