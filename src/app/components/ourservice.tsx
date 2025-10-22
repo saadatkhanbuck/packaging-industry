@@ -16,10 +16,11 @@ import { motion } from "framer-motion";
 
 // Service item interface
 interface ServiceItem {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
+
 
 // Services data array
 const services: ServiceItem[] = [

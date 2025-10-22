@@ -75,7 +75,8 @@ export default function OurClientsReview() {
                     className="rounded-full object-cover"
                   />
                 </div>
-                <p className="text-gray-600 italic mb-4">"{client.review}"</p>
+               <p className="text-gray-600 italic mb-4">&quot;{client.review}&quot;</p>
+
                 <h3 className="font-semibold text-lg text-gray-800">
                   {client.name}
                 </h3>

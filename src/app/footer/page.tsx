@@ -48,13 +48,15 @@ export default function Footer() {
           </p>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#2E8AE0]" /> New York, USA
+              <MapPin className="w-4 h-4 text-[#2E8AE0]" /> Johar Town Lahore,
+              Pakistan
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#2E8AE0]" /> +1 (555) 123-4567
+              <Phone className="w-4 h-4 text-[#2E8AE0]" /> (+92) 3201757153
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#2E8AE0]" /> contact@yourbrand.com
+              <Mail className="w-4 h-4 text-[#2E8AE0]" />{" "}
+              info@packagingwriter.com
             </li>
           </ul>
         </div>
@@ -149,16 +151,15 @@ export default function Footer() {
 
           <div className="flex gap-3">
             {socialIcons.map((item, i) => (
-            <Link
-  key={i}
-  href={item.link}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="p-2 rounded-full bg-white text-[#124576] border border-[#124576] hover:bg-[#124576] hover:text-white hover:border-[#2E8AE0] transition-all duration-300"
->
-  {item.icon}
-</Link>
-
+              <Link
+                key={i}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white text-[#124576] border border-[#124576] hover:bg-[#124576] hover:text-white hover:border-[#2E8AE0] transition-all duration-300"
+              >
+                {item.icon}
+              </Link>
             ))}
           </div>
         </div>

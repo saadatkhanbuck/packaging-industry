@@ -1,7 +1,7 @@
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 import { Sparkles, CheckCircle } from "lucide-react";
 
-export function OrbitingCirclesDemo() {
+export function  OrbitingCirclesDemo() {
   return (
     <div className="relative flex flex-col md:flex-row items-center justify-between w-full min-h-[500px] p-6 gap-4 overflow-hidden">
   {/* 🧾 Left Side - Intro */}
