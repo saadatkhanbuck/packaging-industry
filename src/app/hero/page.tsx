@@ -13,24 +13,19 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// ✅ Hero image URL defined at the top
-const heroImage = "/img/hero.jpg";
-const backgroundImage = "/img/bg.webp";
-
 export default function Hero() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false
+      duration: 1000, // smooth animation speed
+      easing: "ease-in-out", // smooth effect
+      once: false // run only once
     });
   }, []);
-
   return (
     <>
       <section
         className="relative bg-cover bg-center bg-no-repeat min-h-screen"
-        style={{ backgroundImage: `url(${backgroundImage})` }} // ✅ using top variable
+        style={{ backgroundImage: "url('/img/bg.webp')" }}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left Side Image */}
@@ -39,7 +34,7 @@ export default function Hero() {
             data-aos="fade-right"
           >
             <Image
-              src={heroImage} // ✅ using the variable defined at top
+              src="/img/hero.jpg"
               alt="Product Mockup"
               width={640}
               height={640}
@@ -86,6 +81,7 @@ export default function Hero() {
       <MarqueeDemo />
       <WhoWeAreSection />
       <ServicesPage />
+
       <OurProjects />
       <ContentCreation />
       <BlogSection />
