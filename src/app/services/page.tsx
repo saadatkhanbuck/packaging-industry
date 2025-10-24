@@ -7,10 +7,10 @@ import "aos/dist/aos.css";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import ServicesPage from "../components/ourservice";
 import WorkingProcess from "../components/workingprocess";
 import ContactBanner from "../components/contactbanner";
 import FaqSection from "../components/faqsection";
+import OurServices from "../components/ourservice";
 
 export default function ServicesHeader() {
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function ServicesHeader() {
       duration: 800, // smooth speed
       easing: "ease-out-cubic", // soft easing
       once: true, // animate only once
-      offset: 100, // start earlier
+      offset: 100 // start earlier
     });
   }, []);
 
@@ -74,7 +74,7 @@ export default function ServicesHeader() {
 
       {/* Sub Sections */}
       <div data-aos="fade-up" data-aos-delay="100">
-        <ServicesPage />
+        <OurServices />
       </div>
       <div data-aos="fade-up" data-aos-delay="200">
         <WorkingProcess />

@@ -7,10 +7,9 @@ import {
   FaShareAlt,
   FaBlog,
   FaTags,
-  FaClipboardList
+  FaClipboardList,
 } from "react-icons/fa";
-import {  BringToFront } from "lucide-react";
-
+import { BringToFront } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -19,8 +18,8 @@ interface ServiceItem {
   icon: React.ReactNode;
   title: string;
   description: string;
+  link: string;
 }
-
 
 // Services data array
 const services: ServiceItem[] = [
@@ -28,41 +27,47 @@ const services: ServiceItem[] = [
     icon: <FaLaptopCode size={35} />,
     title: "Website Content",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/websitecontent",
   },
   {
     icon: <FaPenNib size={35} />,
     title: "SEO Content",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/seocontent",
   },
   {
     icon: <FaShareAlt size={35} />,
     title: "Social Media Post",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/socialmediapost",
   },
   {
     icon: <FaBlog size={35} />,
     title: "Blog Content",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/blogcontent",
   },
   {
     icon: <FaTags size={35} />,
     title: "Slogans & Phrases",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/slogansphrases",
   },
   {
     icon: <FaClipboardList size={35} />,
     title: "Product Description",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
-  }
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    link: "/servicespages/productdescription",
+  },
 ];
 
-const ServicesPage: React.FC = () => {
+const OurServices: React.FC = () => {
   return (
     <div className="py-14 px-4 md:px-20 bg-white overflow-x-hidden">
       <div className="flex flex-col items-center text-center mb-12">
@@ -112,7 +117,7 @@ const ServicesPage: React.FC = () => {
                     className="mb-2"
                     variants={{
                       hover: { opacity: 0, transition: { duration: 0.5 } },
-                      initial: { opacity: 1 }
+                      initial: { opacity: 1 },
                     }}
                     initial="initial"
                   >
@@ -128,10 +133,20 @@ const ServicesPage: React.FC = () => {
                 </div>
 
                 {/* Read More Button */}
-                {isMiddleCard ? (
+                <div
+                  className={`${
+                    isMiddleCard
+                      ? ""
+                      : "opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  }`}
+                >
                   <Link
-                    href="#"
-                    className="font-semibold flex items-center gap-2 text-sm transition-colors duration-300 text-white"
+                    href={service.link}
+                    className={`font-semibold flex items-center gap-2 text-sm transition-colors duration-300 ${
+                      isMiddleCard
+                        ? "text-white"
+                        : "text-blue-600 group-hover:text-white"
+                    }`}
                   >
                     Read More{" "}
                     <motion.span
@@ -141,22 +156,7 @@ const ServicesPage: React.FC = () => {
                       &rarr;
                     </motion.span>
                   </Link>
-                ) : (
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Link
-                      href="#"
-                      className="font-semibold flex items-center gap-2 text-sm transition-colors duration-300 text-blue-600 group-hover:text-white"
-                    >
-                      Read More{" "}
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ repeat: Infinity, duration: 1 }}
-                      >
-                        &rarr;
-                      </motion.span>
-                    </Link>
-                  </div>
-                )}
+                </div>
               </motion.div>
             </motion.div>
           );
@@ -166,4 +166,4 @@ const ServicesPage: React.FC = () => {
   );
 };
 
-export default ServicesPage;
+export default OurServices;
