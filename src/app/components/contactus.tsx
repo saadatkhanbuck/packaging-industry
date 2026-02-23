@@ -1,16 +1,13 @@
 "use client";
 
 import {
-  Mail,
-  Phone,
-  MapPin,
   ShieldCheck,
   Handshake,
   Clock,
   Facebook,
   Instagram,
   Twitter,
-  Linkedin
+  Linkedin,
 } from "lucide-react";
 
 export default function ContactUs() {

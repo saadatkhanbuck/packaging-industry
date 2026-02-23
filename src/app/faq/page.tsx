@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import AOS from "aos";

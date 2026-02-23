@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ContactUs from "../components/contactus";

@@ -3,8 +3,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ProjectSection from "../components/projectsection";
